@@ -4,38 +4,44 @@ using System.Collections.Generic;
 public class Spawner : MonoBehaviour
 {
     #region Variables
-    public float spawnRate = 2f;
-    public List<GameObject> prefabs;
+    public List<GameObject> enemies;
+    public List<GameObject> powerups;
     public float spawnRadius = 10f;
 
-    float spawnCooldown;
     bool prefabsListNotEmpty;
+    int waveSize;
     #endregion
 
     void Awake() {
-        prefabsListNotEmpty = prefabs.Count > 0;
-    }
-
-    void Start() {
-        SetSpawnCooldown();
+        prefabsListNotEmpty = enemies.Count > 0;
+        waveSize = 1;
     }
 
     void Update() {
-        spawnCooldown -= Time.deltaTime;
-        if (spawnCooldown <= 0 && prefabsListNotEmpty) {
-            SetSpawnCooldown();
-            SpawnRandomPrefab();
+        if (transform.childCount == 0 && prefabsListNotEmpty) {
+            SpawnWave(waveSize);
+            waveSize++;
         }
     }
 
-    void SpawnRandomPrefab() {
-        GameObject rndPrefab = prefabs[Random.Range(0, prefabs.Count)];
-        Vector3 pos = Random.insideUnitSphere * (spawnRadius);
-        pos.y = rndPrefab.transform.position.y;
-        Instantiate(rndPrefab, pos, rndPrefab.transform.rotation, transform);
+
+    void SpawnWave(int waveSize) {
+        for(int i = 0; i < waveSize; i++) {
+            SpawnRandomPrefab(enemies, transform);
+            if(i % 2 == 1) {
+                SpawnRandomPrefab(powerups, null);
+            }
+        }
     }
 
-    void SetSpawnCooldown() {
-        spawnCooldown = spawnRate;
+    void SpawnRandomPrefab(List<GameObject> prefabList, Transform parent) {
+        GameObject rndPrefab = prefabList[Random.Range(0, prefabList.Count)];
+        Vector3 pos = GenerateRandomPos();
+        pos.y = rndPrefab.transform.position.y;
+        Instantiate(rndPrefab, pos, rndPrefab.transform.rotation, parent);
+    }
+
+    Vector3 GenerateRandomPos() {
+        return Random.insideUnitSphere * (spawnRadius);
     }
 }

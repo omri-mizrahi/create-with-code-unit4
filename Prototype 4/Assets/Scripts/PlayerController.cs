@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public Transform focalPoint;
 
     float verticalInput;
+    float horizontalInput;
     Rigidbody rb;
     #endregion
 
@@ -18,9 +19,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         verticalInput = Input.GetAxis(Consts.VERTICAL_INPUT);
+        horizontalInput = Input.GetAxis(Consts.HORIZONTAL_INPUT);
     }
 
     void FixedUpdate() {
         rb.AddForce((force * Time.deltaTime * verticalInput) * focalPoint.forward);
+        rb.AddForce((force * Time.deltaTime * horizontalInput) * focalPoint.right);
     }
 }
