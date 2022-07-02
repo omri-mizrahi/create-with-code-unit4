@@ -665,6 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6954237913715308990, guid: 734a4e04c90191b4583b8ff8898fefdb, type: 3}
+  - {fileID: 6954237913715308990, guid: 047dc2369d303d7439aaf0789bcb26b4, type: 3}
   powerups:
   - {fileID: 1903913494660916968, guid: 78dab2eb34fed2b459cf5db0c28f6eaa, type: 3}
   spawnRadius: 10
