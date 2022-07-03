@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        verticalInput = Input.GetAxis(Consts.VERTICAL_INPUT);
-        horizontalInput = Input.GetAxis(Consts.HORIZONTAL_INPUT);
+        verticalInput = Input.GetAxis(Consts.Input.VERTICAL);
+        horizontalInput = Input.GetAxis(Consts.Input.HORIZONTAL);
     }
 
     void FixedUpdate() {

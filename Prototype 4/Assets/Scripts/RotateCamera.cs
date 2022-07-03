@@ -10,7 +10,7 @@ public class RotateCamera : MonoBehaviour
 
     void Update()
     {
-        horizontalInput = Input.GetAxis(Consts.HORIZONTAL_INPUT);
+        horizontalInput = Input.GetAxis(Consts.Input.HORIZONTAL);
         transform.Rotate(Vector3.up, horizontalInput * rotateSpeed * Time.deltaTime);
     }
 }
