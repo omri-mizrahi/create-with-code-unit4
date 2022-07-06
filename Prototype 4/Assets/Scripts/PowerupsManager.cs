@@ -17,9 +17,9 @@ public class PowerupsManager : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if(other.CompareTag(Consts.Tags.POWERUP)) {
+        if(other.gameObject.layer == Consts.Layers.POWERUPS) {
             Destroy(other.gameObject);
-            StartPowerup(other.name);
+            StartPowerup(other.tag);
         }
     }
 
@@ -33,6 +33,7 @@ public class PowerupsManager : MonoBehaviour
 
     void StopPowerup() {
         hasPowerup = false;
+        currPowerup = null;
         powerupIndicator.SetActive(false);
     }
 }

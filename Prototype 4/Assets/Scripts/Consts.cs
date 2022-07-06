@@ -15,4 +15,8 @@ public static class Consts {
         public const string KNOCKBACK = "KnockbackPowerup";
         public const string MISSILES = "MissilesPowerup";
     }
+
+    public class Layers {
+        public const int POWERUPS = 6;
+    }
 }

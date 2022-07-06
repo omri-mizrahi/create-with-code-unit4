@@ -4,30 +4,42 @@ public class HomingMissile : MonoBehaviour
 {
     #region Variables
     public float speed;
+    public float force;
+    public Vector3 rotationOffset = new Vector3(0, 90, 90);
 
     GameObject closestEnemy;
     Rigidbody rb;
     #endregion
 
-    void Awake()
+    void Awake() {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Start()
     {
         closestEnemy = FindClosestEnemy();
-        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        if(!closestEnemy) {
+            closestEnemy = FindClosestEnemy();
+        }
+    }
+
+    void FixedUpdate() {
         transform.LookAt(closestEnemy.transform);
-        Vector3 direction = (closestEnemy.transform.position - transform.position).normalized;
-        direction.y = 0;
-        rb.velocity = (Time.deltaTime * speed) * direction;
-        /* TODO:
-        0. add rigidbody to missile prefab, assign prefab in "MissilePowerup"
-        1. check to see if current code works
-        2. think what to do when no enemy was foudn in FindClosestEnemy, maybe destry self
-        3. add a knockback when missile collides with enemy
-        4. add "missilePowerup" pickup to the spawner
-        */
+        transform.Rotate(rotationOffset);
+        transform.Translate((Time.fixedDeltaTime * speed) * transform.right, Space.Self);
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.CompareTag(Consts.Tags.ENEMY)) {
+            Destroy(gameObject);
+            Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
+            Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
+            enemyRb.AddForce(force * knockbackDirection, ForceMode.Impulse);
+        }
     }
 
     GameObject FindClosestEnemy() {

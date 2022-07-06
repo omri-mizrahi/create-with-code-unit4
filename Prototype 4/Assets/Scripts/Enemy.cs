@@ -24,6 +24,6 @@ public class Enemy : MonoBehaviour
         if (magnitude > 1) {
             movementVector = movementVector / 2f;
         }
-        rb.AddForce((force * Time.deltaTime) * movementVector);
+        rb.AddForce((force * Time.fixedDeltaTime) * movementVector);
     }
 }

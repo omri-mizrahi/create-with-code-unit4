@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        rb.AddForce((force * Time.deltaTime * verticalInput) * focalPoint.forward);
-        rb.AddForce((force * Time.deltaTime * horizontalInput) * focalPoint.right);
+        rb.AddForce((force * Time.fixedDeltaTime * verticalInput) * focalPoint.forward);
+        rb.AddForce((force * Time.fixedDeltaTime * horizontalInput) * focalPoint.right);
     }
 }

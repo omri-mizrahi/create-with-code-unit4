@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1889317305837573204}
   - component: {fileID: 286643079438803702}
   - component: {fileID: -8176935861216611219}
-  m_Layer: 0
-  m_Name: KnockbackPowerup
-  m_TagString: Powerup
+  m_Layer: 6
+  m_Name: KnockbackPowerup_Pickup
+  m_TagString: KnockbackPowerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
