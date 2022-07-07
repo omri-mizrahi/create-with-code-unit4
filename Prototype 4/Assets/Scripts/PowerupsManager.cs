@@ -6,15 +6,8 @@ public class PowerupsManager : MonoBehaviour
     public float powerupTime = 5f;
     public GameObject powerupIndicator;
     
-    public static bool hasPowerup;
-    public static string currPowerup;
+    public static string CurrPowerup;
     #endregion
-
-    
-    void Awake()
-    {
-        hasPowerup = false;
-    }
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == Consts.Layers.POWERUPS) {
@@ -25,15 +18,13 @@ public class PowerupsManager : MonoBehaviour
 
     void StartPowerup(string type) {
         CancelInvoke();
-        hasPowerup = true;
-        currPowerup = type;
+        CurrPowerup = type;
         powerupIndicator.SetActive(true);
         Invoke(nameof(StopPowerup), powerupTime);
     }
 
     void StopPowerup() {
-        hasPowerup = false;
-        currPowerup = null;
+        CurrPowerup = null;
         powerupIndicator.SetActive(false);
     }
 }

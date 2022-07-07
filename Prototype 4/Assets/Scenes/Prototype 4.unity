@@ -502,6 +502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island
       objectReference: {fileID: 0}
+    - target: {fileID: 1301643505922104, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -630,7 +634,7 @@ GameObject:
   - component: {fileID: 1529240350}
   - component: {fileID: 1529240351}
   m_Layer: 0
-  m_Name: Enemies
+  m_Name: Spanwer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,6 +673,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 1903913494660916968, guid: 78dab2eb34fed2b459cf5db0c28f6eaa, type: 3}
   - {fileID: 132260, guid: 510349479745aac4b9209e9326e42601, type: 3}
+  - {fileID: 4950438093658952999, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
   spawnRadius: 10
 --- !u!4 &1738292301 stripped
 Transform:
@@ -864,6 +869,7 @@ GameObject:
   - component: {fileID: 2138438656}
   - component: {fileID: 2138438657}
   - component: {fileID: 2138438658}
+  - component: {fileID: 2138438659}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1017,8 +1023,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275198e5ca6ce8a4b867b6607b37485e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupTime: 5
+  powerupTime: 50
   powerupIndicator: {fileID: 999177644}
+--- !u!114 &2138438659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138438649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38cfc7c4f37d9440921e86c5d5a93f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 20
+  maxHeight: 7
+  fallVelocityMultiplier: 4
+--- !u!1001 &6575629386054173817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4950438093658952999, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_Name
+      value: SmashPowerup_Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950438093659181495, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f73ea07e3dbcbe42aa6cdc3ea0a9b21, type: 3}
 --- !u!1001 &7305732181041295649
 PrefabInstance:
   m_ObjectHideFlags: 0

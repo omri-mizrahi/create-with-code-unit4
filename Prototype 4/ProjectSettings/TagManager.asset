@@ -9,6 +9,8 @@ TagManager:
   - PlayerGoal
   - KnockbackPowerup
   - MissilesPowerup
+  - SmashPowerup
+  - Ground
   layers:
   - Default
   - TransparentFX

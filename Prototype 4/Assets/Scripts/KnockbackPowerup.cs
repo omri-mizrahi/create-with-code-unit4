@@ -7,10 +7,14 @@ public class KnockbackPowerup : MonoBehaviour
     #endregion
 
     void OnCollisionEnter (Collision other) {
-        if(other.gameObject.CompareTag(Consts.Tags.ENEMY) && PowerupsManager.currPowerup == Consts.Powerups.KNOCKBACK) {
-            Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
-            Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
-            enemyRb.AddForce(force * knockbackDirection, ForceMode.Impulse);
+        if(other.gameObject.CompareTag(Consts.Tags.ENEMY) && PowerupsManager.CurrPowerup == Consts.Powerups.KNOCKBACK) {
+            ApplyKnockback(other.gameObject);
         }
+    }
+
+    void ApplyKnockback(GameObject enemy) {
+        Rigidbody enemyRb = enemy.GetComponent<Rigidbody>();
+        Vector3 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+        enemyRb.AddForce(force * knockbackDirection, ForceMode.Impulse);
     }
 }
