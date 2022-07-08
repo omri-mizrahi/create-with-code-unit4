@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DetectAndEnd : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class DetectAndEnd : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag(detectTag) && !detected) {
             detected = true;
-            // GameController.EndGame();
+            RestartGame();
         }
+    }
+
+    void RestartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

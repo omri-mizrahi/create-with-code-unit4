@@ -4,7 +4,7 @@ public class HomingMissile : MonoBehaviour
 {
     #region Variables
     public float speed;
-    public float force;
+    public float force = 20f;
     public Vector3 rotationOffset = new Vector3(0, 90, 90);
 
     GameObject closestEnemy;
@@ -36,9 +36,7 @@ public class HomingMissile : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag(Consts.Tags.ENEMY)) {
             Destroy(gameObject);
-            Rigidbody enemyRb = other.gameObject.GetComponent<Rigidbody>();
-            Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
-            enemyRb.AddForce(force * knockbackDirection, ForceMode.Impulse);
+            Utils.ApplyKnockback(other.gameObject, transform, force);
         }
     }
 

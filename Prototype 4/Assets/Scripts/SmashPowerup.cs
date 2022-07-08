@@ -11,6 +11,7 @@ public class SmashPowerup : MonoBehaviour
     public float jumpForce = 20f;
     public float maxHeight = 10f;
     public float fallVelocityMultiplier = 3f;
+    public GameObject shockwave;
 
     Vector3 fallGravity;
     bool shouldSmash;
@@ -44,11 +45,11 @@ public class SmashPowerup : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other) {
-        if(other.gameObject.CompareTag(Consts.Tags.GROUND)) {
+    void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.CompareTag(Consts.Tags.GROUND) && !isGrounded) {
             isGrounded = true;
             if(shouldSendShockwave) {
-                SendShockwave();
+                SendShockwave(collision.GetContact(0).point);
             }
         }
     }
@@ -67,8 +68,8 @@ public class SmashPowerup : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
     }
 
-    void SendShockwave() {
-
+    void SendShockwave(Vector3 pos) {
+        Instantiate(shockwave, pos, Quaternion.identity);
     }
 
 }

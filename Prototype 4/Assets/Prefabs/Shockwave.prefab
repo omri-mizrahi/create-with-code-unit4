@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4950438093658952999
+--- !u!1 &3922520174758482695
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4950438093659181495}
-  - component: {fileID: 4950438093660010555}
-  - component: {fileID: 4950438093661204889}
-  - component: {fileID: 6016176558921827661}
-  - component: {fileID: 3273043375997395803}
-  m_Layer: 6
-  m_Name: SmashPowerup_Pickup
-  m_TagString: SmashPowerup
+  - component: {fileID: 3922520174758482700}
+  - component: {fileID: 3922520174758482691}
+  - component: {fileID: 3922520174758482690}
+  - component: {fileID: 3922520174758482689}
+  - component: {fileID: 3922520174758482688}
+  m_Layer: 0
+  m_Name: Shockwave
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4950438093659181495
+--- !u!4 &3922520174758482700
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950438093658952999}
+  m_GameObject: {fileID: 3922520174758482695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.03, y: 0.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4950438093660010555
+--- !u!33 &3922520174758482691
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950438093658952999}
-  m_Mesh: {fileID: 4300000, guid: 658d96199cc7d3b4880fa76714523436, type: 3}
---- !u!23 &4950438093661204889
+  m_GameObject: {fileID: 3922520174758482695}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3922520174758482690
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950438093658952999}
-  m_Enabled: 1
+  m_GameObject: {fileID: 3922520174758482695}
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24d1e668b6616bb488e191b004747d9e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -85,30 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6016176558921827661
+--- !u!136 &3922520174758482689
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922520174758482695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &3922520174758482688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950438093658952999}
+  m_GameObject: {fileID: 3922520174758482695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d393f1d63cceb84d8217e18efbcd8d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bc8cecc404abac49a08ffb7046cdb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  rotateAround: {x: 0, y: 1, z: 0}
---- !u!65 &3273043375997395803
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950438093658952999}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9843216, y: 1.3427864, z: 0.5165372}
-  m_Center: {x: 0, y: -0.21219903, z: -0.0045579076}
+  speed: 20
+  maxSize: 15
+  forceMultiplier: 5
