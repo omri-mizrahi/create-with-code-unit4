@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4158008417130529164}
   - component: {fileID: 2177569435620995291}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: MissileAtPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04dec0350eca09340ae8af327ffa4ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  force: 20
+  targetTag: Player
+  speed: 7
+  force: 10
   rotationOffset: {x: 0, y: 90, z: 90}
 --- !u!54 &4158008417130529164
 Rigidbody:

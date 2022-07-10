@@ -3,11 +3,12 @@ using UnityEngine;
 public class HomingMissile : MonoBehaviour
 {
     #region Variables
+    public string targetTag = "Enemy";
     public float speed;
     public float force = 20f;
     public Vector3 rotationOffset = new Vector3(0, 90, 90);
 
-    GameObject closestEnemy;
+    GameObject closestTarget;
     Rigidbody rb;
     #endregion
 
@@ -17,41 +18,41 @@ public class HomingMissile : MonoBehaviour
 
     void Start()
     {
-        closestEnemy = FindClosestEnemy();
+        closestTarget = FindClosestTarget();
     }
 
     void Update()
     {
-        if(!closestEnemy) {
-            closestEnemy = FindClosestEnemy();
+        if(!closestTarget) {
+            closestTarget = FindClosestTarget();
         }
     }
 
     void FixedUpdate() {
-        transform.LookAt(closestEnemy.transform);
+        transform.LookAt(closestTarget.transform);
         transform.Rotate(rotationOffset);
         transform.Translate((Time.fixedDeltaTime * speed) * transform.right, Space.Self);
     }
 
     void OnTriggerEnter(Collider other) {
-        if(other.CompareTag(Consts.Tags.ENEMY)) {
+        if(other.CompareTag(targetTag)) {
             Destroy(gameObject);
             Utils.ApplyKnockback(other.gameObject, transform, force);
         }
     }
 
-    GameObject FindClosestEnemy() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Consts.Tags.ENEMY);
+    GameObject FindClosestTarget() {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
         float minDist = float.PositiveInfinity;
-        GameObject closestEnemy = null;
+        GameObject closestTarget = null;
         Vector3 currPos = transform.position;
-        foreach(GameObject enemy in enemies) {
-            float dist = Vector3.Distance(currPos, enemy.transform.position);
+        foreach(GameObject target in targets) {
+            float dist = Vector3.Distance(currPos, target.transform.position);
             if(dist < minDist) {
-                closestEnemy = enemy;
+                closestTarget = target;
                 minDist = dist;
             }
         }
-        return closestEnemy;
+        return closestTarget;
     }
 }

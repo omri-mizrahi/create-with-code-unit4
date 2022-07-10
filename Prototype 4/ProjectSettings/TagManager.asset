@@ -11,6 +11,7 @@ TagManager:
   - MissilesPowerup
   - SmashPowerup
   - Ground
+  - FocalPoint
   layers:
   - Default
   - TransparentFX
