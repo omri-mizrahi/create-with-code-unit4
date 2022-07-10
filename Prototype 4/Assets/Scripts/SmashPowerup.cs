@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/* TODO:
-4. implemetn the knockback wave mechanic - search for enemis by tag, loop them and knockback by distance 
-        (low distance = stronger knocback, too much distnce = 0 knocbkac)
-*/
-
 public class SmashPowerup : MonoBehaviour
 {
     #region Variables
@@ -46,10 +41,14 @@ public class SmashPowerup : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.CompareTag(Consts.Tags.GROUND) && !isGrounded) {
-            isGrounded = true;
+        if(!isGrounded) {
+            if (collision.gameObject.CompareTag(Consts.Tags.GROUND)) {
+                isGrounded = true;
+            }
             if(shouldSendShockwave) {
-                SendShockwave(collision.GetContact(0).point);
+                Vector3 shockwavePos = collision.GetContact(0).point;
+                shockwavePos.y = 0;
+                SendShockwave(shockwavePos);
             }
         }
     }

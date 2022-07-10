@@ -1,4 +1,8 @@
 public static class Consts {
+    public class Config {
+        public const float SPAWN_RADIUS = 10f;
+    }
+    
     public class Input {
         public const string HORIZONTAL = "Horizontal";
         public const string VERTICAL = "Vertical";
