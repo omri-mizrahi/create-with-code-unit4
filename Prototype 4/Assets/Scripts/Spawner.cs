@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
     [Tooltip("Boss battle every X waves")]
     public int bossWaveInterval = 5;
     
-    public float spawnRadius = 10f;
     public int enemyToPowerupRatio = 3;
     public int powerupToBossRatio = 2;
 

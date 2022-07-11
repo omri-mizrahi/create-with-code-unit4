@@ -9,6 +9,10 @@ public class PowerupsManager : MonoBehaviour
     public static string CurrPowerup;
     #endregion
 
+    void Awake() {
+        CurrPowerup = null;
+    }
+
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == Consts.Layers.POWERUPS) {
             Destroy(other.gameObject);
